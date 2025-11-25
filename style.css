@@ -1,0 +1,18 @@
+.input-field {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.icon-award, .icon-users, .icon-calendar, .icon-target {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.icon-award { background-image: url("https://cdn-icons-png.flaticon.com/512/1828/1828884.png"); }
+.icon-users { background-image: url("https://cdn-icons-png.flaticon.com/512/456/456212.png"); }
+.icon-calendar { background-image: url("https://cdn-icons-png.flaticon.com/512/747/747310.png"); }
+.icon-target { background-image: url("https://cdn-icons-png.flaticon.com/512/1077/1077086.png"); }

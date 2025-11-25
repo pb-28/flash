@@ -1,21 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Flash Pickleball</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Flash Pickleball</title>
 
-  <body>
-    <!-- This is where your React website will render -->
-    <div id="root"></div>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- React + ReactDOM (only for CDN setups, remove if using Vite/Webpack) -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white">
 
-    <!-- If you are using Vite/React Scripts, your bundler will inject the script -->
-    <!-- If using plain HTML + CDN, import your compiled JS file here -->
-    <script type="module" src="./main.jsx"></script>
-  </body>
+  <!-- NAVBAR -->
+  <nav class="bg-black shadow-lg fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 sm:h-20">
+
+        <!-- Logo -->
+        <div class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+          THE <span class="text-yellow-400">FLASH</span>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex space-x-6">
+          <button class="nav-btn text-white" data-section="home">Home</button>
+          <button class="nav-btn text-white" data-section="about">About</button>
+          <button class="nav-btn text-white" data-section="why-us">Why Us</button>
+          <button class="nav-btn text-white" data-section="coaching">Coaching</button>
+          <button class="nav-btn text-white" data-section="gallery">Gallery</button>
+          <button class="nav-btn text-white" data-section="contact">Contact</button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-toggle" class="md:hidden text-white text-2xl">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-gray-900 md:hidden">
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="home">Home</button>
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="about">About</button>
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="why-us">Why Us</button>
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="coaching">Coaching</button>
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="gallery">Gallery</button>
+      <button class="mobile-nav-btn block w-full text-left px-4 py-3 text-white" data-section="contact">Contact</button>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTIONS -->
+  <div id="home" class="section mt-20">
+    <div class="bg-gradient-to-br from-black via-gray-900 to-black text-white text-center py-24">
+      <h1 class="text-5xl font-bold">THE <span class="text-yellow-400">FLASH</span> PICKLEBALL</h1>
+      <p class="mt-4 text-xl text-gray-300">Nepal's Fastest Growing Pickleball Community</p>
+      <button class="mt-6 bg-yellow-400 px-8 py-4 text-black font-bold rounded-full hover:bg-yellow-500"
+        onclick="showSection('coaching')">Start Training Today</button>
+    </div>
+
+    <!-- Four Features -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-16 px-4">
+      <div class="p-6 bg-gray-50 rounded-lg text-center">
+        <div class="icon-award mx-auto mb-4"></div>
+        <h3 class="text-xl font-bold">Top Coaches</h3>
+        <p class="text-gray-600">Nepal's #1 ranked players</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-lg text-center">
+        <div class="icon-users mx-auto mb-4"></div>
+        <h3 class="text-xl font-bold">Community</h3>
+        <p class="text-gray-600">Vibrant & active club</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-lg text-center">
+        <div class="icon-calendar mx-auto mb-4"></div>
+        <h3 class="text-xl font-bold">Events</h3>
+        <p class="text-gray-600">Regular tournaments</p>
+      </div>
+      <div class="p-6 bg-gray-50 rounded-lg text-center">
+        <div class="icon-target mx-auto mb-4"></div>
+        <h3 class="text-xl font-bold">All Levels</h3>
+        <p class="text-gray-600">Beginner to champion</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div id="about" class="section hidden px-4 py-16 max-w-5xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-8">About <span class="text-yellow-400">The Flash</span></h2>
+    <div class="bg-yellow-50 p-6 rounded-lg">Our Story content...</div>
+  </div>
+  <!-- WHY CHOOSE THE FLASH PICKLEBALL -->
+<div id="why-us" class="section hidden px-4 py-16 max-w-5xl mx-auto">
+  <h2 class="text-4xl font-bold text-center mb-10">
+    Why Choose <span class="text-yellow-400">The Flash Pickleball?</span>
+  </h2>
+
+  <div class="space-y-6 text-gray-800">
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">1. Nepal’s Fastest Growing Pickleball Community</h3>
+      <p>
+        The Flash Pickleball has quickly become one of the most vibrant and active pickleball clubs in the
+        country. Our dynamic calendar of training sessions, tournaments, and community events keeps players
+        engaged year-round.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">2. Led by Nepal’s No.1 Ranked Players</h3>
+      <p>
+        Our founders, Samir Pokhrel and Subarna Shah, are the top-ranked pickleball players in Nepal — both
+        in singles and doubles. Their deep expertise and international playing experience form the backbone of
+        our training excellence.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">3. Proven Professional Coaching</h3>
+      <p>
+        With over 4 years of playing and coaching experience, plus 1.5 years of dedicated professional
+        coaching, we offer training programs built on proper technique, discipline, and player-centered
+        development.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">4. International Exposure, Local Impact</h3>
+      <p>
+        Having represented Nepal on global stages, our coaches bring world-class insights to the local court.
+        Players train using standards and strategies practiced by international athletes.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">5. Complete Player Development Ecosystem</h3>
+      <p>
+        From beginner-friendly sessions to advanced competitive coaching, we provide a structured pathway
+        for players to grow. Integrated DUPR ranking systems ensure players track progress with accuracy and
+        credibility.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">6. A Thriving Environment for All Skill Levels</h3>
+      <p>
+        The Flash is more than a club — it’s a community. Whether you are a first-time player or an aspiring
+        champion, you’ll find a welcoming space to train, connect, and challenge yourself.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">7. Strong Partnerships & Trusted Support</h3>
+      <p>
+        Supported by major brands like Selkirk Pickleball, we are actively expanding collaborations with
+        national associations and local organizations to uplift the sport's infrastructure in Nepal.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">8. Dedicated to Youth & Grassroots Development</h3>
+      <p>
+        We believe in shaping the future of pickleball by introducing the sport in schools and communities.
+        Our youth programs focus on discipline, fitness, and early talent development.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">9. Organizers of Premier Pickleball Events</h3>
+      <p>
+        From monthly tournaments to national and international-level championships, we consistently deliver
+        high-quality events that raise the competitive standard of Nepalese pickleball.
+      </p>
+    </div>
+
+    <div class="p-6 bg-gray-50 rounded-lg shadow">
+      <h3 class="text-2xl font-bold mb-2">10. A Vision to Establish a National Center of Excellence</h3>
+      <p>
+        With long-term plans for a dedicated training camp, regional hubs, and global athlete pathways, The
+        Flash Pickleball is committed to transforming Nepal into a rising force in the world of pickleball.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+  <!-- COACHING -->
+  <div id="coaching" class="section hidden px-4 py-16 max-w-7xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-10">Coaching <span class="text-yellow-400">Packages</span></h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="p-6 border rounded-lg">Group Classes…</div>
+      <div class="p-6 border rounded-lg">Basic Package…</div>
+      <div class="p-6 border rounded-lg">Standard Package…</div>
+      <div class="p-6 bg-yellow-400 text-black rounded-lg">Premium Package…</div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div id="gallery" class="section hidden max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-4xl font-bold text-center mb-10">Gallery</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Images -->
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400" />
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400" />
+      <img class="rounded-lg shadow" src="https://images.unsplash.com/photo-1617883861744-7686a0c781d0?w=400" />
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="section hidden px-4 py-16 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-10">Get in <span class="text-yellow-400">Touch</span></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-black text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4 text-yellow-400">Contact Information</h3>
+        <p>Sukedhara, Kathmandu</p>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <input class="input-field" type="text" placeholder="Your Name" />
+        <input class="input-field" type="email" placeholder="Your Email" />
+        <textarea class="input-field" rows="4" placeholder="Message"></textarea>
+        <button class="w-full bg-yellow-400 mt-3 py-3 rounded font-bold">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
 </html>
